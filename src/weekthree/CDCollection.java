@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package weekthree;
 
 import java.text.NumberFormat;
 
-public class CDCollection
+public class CDCollection 
 {
    private CD[] collection;
    private int count;
@@ -18,24 +14,23 @@ public class CDCollection
    //-----------------------------------------------------------------
    public CDCollection ()
    {
-      collection = new CD[100];
+      // changed the value to 5 to make life easy while debugging
+      collection = new CD[5];
       count = 0;
       totalCost = 0.0;
    }
 
    //-----------------------------------------------------------------
-   //  Adds a CD to the collection, increasing the size of the
-   //  collection if necessary.
+   //  Adds a CD to the col/ary.
    //-----------------------------------------------------------------
    public void addCD (String title, String artist, double cost,
                       int tracks)
    {
-       // didnt go through the if statement
-       // because count = 0; collection.length()=100. NOT Equal
-      if (count != collection.length)
+       
+       // now it will get inside the if
+       // as count is 5
+      if (count == collection.length)
          increaseSize();
-      
-      // now it entered the increaseSize()
 
       collection[count] = new CD (title, artist, cost, tracks);
       totalCost += cost;
@@ -70,19 +65,27 @@ public class CDCollection
    //-----------------------------------------------------------------
    private void increaseSize ()
    {
+       // creating a new array 'temp' to increase the array length
+       // new length will be 10 instade of 5
+       
       CD[] temp = new CD[collection.length * 2];
 
-      for (int cd = 0; cd < collection.length; cd++){
-         temp[cd] = collection[cd];
-          
-      }
       
-       for (int i = 0; i < collection.length; i++) {
+      for (int cd = 0; cd < collection.length; cd++){
+         temp[cd] = collection[cd];          
+      }
+      // here is a bug 
+      // the collection doesnt have all the entry from temp
+      //collection = temp;
+      // go i cloned it
+      collection = temp.clone();
+      
+      for (int i = 0; i < collection.length; i++) {
            System.out.println(collection[i]);
        }
-      
-
-      // taking values in. so its working
-      collection = temp;
    }
 }
+
+//now the collection length is increased
+// ad all the CDs are there
+//thank you

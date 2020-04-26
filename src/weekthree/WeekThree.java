@@ -18,7 +18,15 @@ public class WeekThree {
         // a description of what is happening in the increaseSize() method ofthe
         // CDCollection class
         
+        // cDCollection object 
         CDCollection cdc = new CDCollection();
+        
+        // added 6 CDs
+        // will debug from 5th CD
+        cdc.addCD("Into the wild", "N/A", 8, 12);
+        cdc.addCD("Moharaja", "Warfaze", 5, 14);
+        cdc.addCD("Into the wild", "N/A", 8, 12);
+        cdc.addCD("Moharaja", "Warfaze", 5, 14);
         cdc.addCD("Into the wild", "N/A", 8, 12);
         cdc.addCD("Moharaja", "Warfaze", 5, 14);
         
